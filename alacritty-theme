@@ -21,7 +21,7 @@ else
     set theme $argv[1]
 end
 
-set alc_dir "/home/duckye/.config/alacritty"
-set themes_dir "~/.config/alacritty/themes"
+set alc_dir ~/.config/alacritty
+set themes_dir ~/.config/alacritty/themes
 
 string replace -r "$themes_dir/.*\.toml" "$themes_dir/$theme\.toml" <"$alc_dir/alacritty.toml" >"$alc_dir/alacritty.tmp"; and mv "$alc_dir/alacritty.tmp" "$alc_dir/alacritty.toml"
