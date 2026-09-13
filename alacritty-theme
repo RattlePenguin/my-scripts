@@ -1,0 +1,27 @@
+#!/bin/fish
+
+set themes light dark
+
+if test (count $argv) -ne 1
+    echo "Usage: alacritty-theme [light/dark]"
+    return 1
+end
+
+if not contains $argv[1] $themes
+    echo "theme not found"
+    echo "available: $themes"
+    return 1
+end
+
+if test $argv[1] = dark
+    set theme ayu-mirage
+else if test $argv[1] = light
+    set theme catppuccin-latte
+else
+    set theme $argv[1]
+end
+
+set alc_dir "/home/duckye/.config/alacritty"
+set themes_dir "~/.config/alacritty/themes"
+
+string replace -r "$themes_dir/.*\.toml" "$themes_dir/$theme\.toml" <"$alc_dir/alacritty.toml" >"$alc_dir/alacritty.tmp"; and mv "$alc_dir/alacritty.tmp" "$alc_dir/alacritty.toml"
