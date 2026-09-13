@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# dir sweep git pull --rebase
+# dir sweep git push
 # for each directory in current directory:
-# cd in
-#   git status
-#     if clean git pull --rebase
-#       if something happened git rebase --abort and send message
-#       if ok send message
-#     if not clean send message
+#   cd in
+#   git pull --rebase
+#     if something happened git rebase --abort and send message
+#   if ok send message
 
 dirs=$(ls -d */)
 
